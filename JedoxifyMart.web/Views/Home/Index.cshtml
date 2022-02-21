@@ -1,0 +1,58 @@
+﻿@model IEnumerable<JedoxifyMart.web.Models.ProductDto>
+
+@*
+    <form method="post">
+*@
+<form method="post">
+    <div class="container row">
+
+        @foreach (var product in Model)
+        {
+            <div class="col-4 ">
+                <div class="p-0 my-3 border">
+                    <div class="card">
+
+                        <div class="card-body">
+                            <h3 class="card-title text-success">@product.ProductName</h3>
+
+                            <div class="col">
+                                <div class="row pt-1">
+                                    <span style="font-size:23px;">Stand Name: @product.StandId</span>
+                                </div>
+                                <div class="row pt-1">
+                                    <span style="font-size:23px;">Price: @string.Format("{0:c}", product.Price)</span>
+                                </div>
+                                <div class="col">
+
+                                    <input asp-for="@product.ProductCount" asp-validation-for="@product.ProductCount" class="form-control" />
+                                    <span asp-validation-for="@product.ProductCount" class="text-danger"></span>
+                                </div>
+                                @*  <div class="col">
+                                    <a asp-action="AddToCart" asp-route-productId="@product.ProductId"
+                                    class="btn btn-success form-control">Add to Cart</a>
+                                    </div>*@
+
+
+                                <div class="card-footer row bg-dark">
+                                    <div class="col-12 col-md-6 pb-1 ">
+                                        <a class="btn btn-success btn-square form-control btn-lg" style="height:50px;">Leave Stand</a>
+                                    </div>
+                                    <div class="col-12 col-md-6 ">
+                                        <input asp-for="@product.ProductId" hidden />
+                                        <button type="submit" name = "productId"  value="@product.ProductId" class="btn btn-primary form-control btn-lg" style="height:50px;">Add to Cart</button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</form>
+@section Scripts{
+<partial name="_ValidationScriptsPartial" />
+}
