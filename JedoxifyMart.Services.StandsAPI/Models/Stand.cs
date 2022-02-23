@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations; 
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace JedoxifyMart.Services.StandsAPI.Models
 {
@@ -6,12 +7,11 @@ namespace JedoxifyMart.Services.StandsAPI.Models
     {
 
         [Key]
-        [Required]
         public int StandId { get; set; }
-
         [Required]
         public string StandName { get; set; } = string.Empty;
 
-     
+        public IEnumerable<StandDetails> StandDetails { get; set; }
+
     }
 }

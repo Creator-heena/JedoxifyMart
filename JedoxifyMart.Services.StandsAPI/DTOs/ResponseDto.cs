@@ -1,4 +1,4 @@
-﻿namespace JedoxifyMart.Services.ProductsAPI.DTOs
+﻿namespace JedoxifyMart.Services.StandsAPI.DTOs
 {
     public class ResponseDto
     {

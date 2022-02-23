@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace JedoxifyMart.Services.ShoppingCartAPI.DTOs
+﻿namespace JedoxifyMart.Services.ShoppingCartAPI.DTOs
 {
     public class ProductDto
     {

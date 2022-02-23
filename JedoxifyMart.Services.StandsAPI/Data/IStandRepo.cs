@@ -1,4 +1,5 @@
-﻿using JedoxifyMart.Services.StandsAPI.Models;
+﻿using JedoxifyMart.Services.StandsAPI.DTOs;
+using JedoxifyMart.Services.StandsAPI.Models;
 
 
 namespace JedoxifyMart.Services.StandsAPI.Data
@@ -7,10 +8,12 @@ namespace JedoxifyMart.Services.StandsAPI.Data
     {
         bool SaveChanges();
 
-        IEnumerable<Stand> GetAllStands();
+        Task<IEnumerable<StandDto>> GetAllStands();
 
-        Stand GetStandById(int id);
+        Task<StandDto> GetStandById(int standId);
 
-        void CreateStand(Stand stand);
+        //Task<StandDto> CreateStand(StandDto standDto);
+
     }
 }
+

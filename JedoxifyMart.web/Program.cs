@@ -11,8 +11,10 @@ builder.Services.AddHttpClient<IProductService, ProductService>();
 builder.Services.AddHttpClient<IShoppingCartService, ShoppingCartService>();
 StaticDetails.ProductsAPIBase = builder.Configuration["ServiceUrls:ProductsAPI"];
 StaticDetails.ShoppingCartAPIBase = builder.Configuration["ServiceUrls:ShoppingCartAPI"];
+StaticDetails.StandAPIBase = builder.Configuration["ServiceUrls:StandsAPI"];
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IShoppingCartService, ShoppingCartService>();
+builder.Services.AddScoped<IStandService, StandService>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddAuthentication(options =>
 {

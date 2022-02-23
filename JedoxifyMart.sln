@@ -13,9 +13,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JedoxifyMart.Services.Stand
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JedoxifyMart.Services.ProductsAPI", "JedoxifyMart.Services.ProductsAPI\JedoxifyMart.Services.ProductsAPI.csproj", "{BF31ABFE-7782-47AD-B52C-561CA3FD1BC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JedoxifyMart.Services.Identity", "JedoxifyMart.Services.Identity\JedoxifyMart.Services.Identity.csproj", "{81E285FD-07E3-416C-A491-1508D48C3D19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JedoxifyMart.Services.Identity", "JedoxifyMart.Services.Identity\JedoxifyMart.Services.Identity.csproj", "{81E285FD-07E3-416C-A491-1508D48C3D19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JedoxifyMart.Services.ShoppingCartAPI", "JedoxifyMart.Services.ShoppingCartAPI\JedoxifyMart.Services.ShoppingCartAPI.csproj", "{BB549F96-E772-4B41-BD3E-A2BC14C36F8F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JedoxifyMart.Services.ShoppingCartAPI", "JedoxifyMart.Services.ShoppingCartAPI\JedoxifyMart.Services.ShoppingCartAPI.csproj", "{BB549F96-E772-4B41-BD3E-A2BC14C36F8F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateway", "Gateway", "{CBA6E24A-C28A-4B1B-887D-E7BC4C11C3AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JedoxifyMart.GatewaySolution", "JedoxifyMart.GatewaySolution\JedoxifyMart.GatewaySolution.csproj", "{C5052035-F4B9-432F-8F00-66A9CF17B045}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +47,10 @@ Global
 		{BB549F96-E772-4B41-BD3E-A2BC14C36F8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB549F96-E772-4B41-BD3E-A2BC14C36F8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB549F96-E772-4B41-BD3E-A2BC14C36F8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5052035-F4B9-432F-8F00-66A9CF17B045}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5052035-F4B9-432F-8F00-66A9CF17B045}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5052035-F4B9-432F-8F00-66A9CF17B045}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5052035-F4B9-432F-8F00-66A9CF17B045}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +61,7 @@ Global
 		{BF31ABFE-7782-47AD-B52C-561CA3FD1BC7} = {952AC224-95B7-4243-AF92-669515AB3500}
 		{81E285FD-07E3-416C-A491-1508D48C3D19} = {952AC224-95B7-4243-AF92-669515AB3500}
 		{BB549F96-E772-4B41-BD3E-A2BC14C36F8F} = {952AC224-95B7-4243-AF92-669515AB3500}
+		{C5052035-F4B9-432F-8F00-66A9CF17B045} = {CBA6E24A-C28A-4B1B-887D-E7BC4C11C3AE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {42B62FB7-1BBB-4870-A737-12C4FC1D6B79}
