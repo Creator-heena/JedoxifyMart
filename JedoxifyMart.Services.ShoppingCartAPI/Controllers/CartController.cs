@@ -1,5 +1,7 @@
-﻿using JedoxifyMart.Services.ShoppingCartAPI.DTOs;
+﻿using JedoxifyMart.MessageBus;
+using JedoxifyMart.Services.ShoppingCartAPI.DTOs;
 using JedoxifyMart.Services.ShoppingCartAPI.Messages;
+using JedoxifyMart.Services.ShoppingCartAPI.RabbitMQSender;
 using JedoxifyMart.Services.ShoppingCartAPI.Repository;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,16 +12,16 @@ namespace JedoxifyMart.Services.ShoppingCartAPI.Controllers
     public class CartController : Controller
     {
         private readonly ICartRepo _cartRepository;
-        
-       // private readonly IMessageBus _messageBus;
         protected ResponseDto _response;
-        //  private readonly IRabbitMQCartMessageSender _rabbitMQCartMessageSender;
-    
+        private readonly IShoppingCartMessageSender _shoppingCartMessageSender;
+     
 
-        public CartController(ICartRepo cartRepository)
+
+        public CartController(ICartRepo cartRepository, IShoppingCartMessageSender shoppingCartMessageSender)
         {
             _cartRepository = cartRepository;
-         
+              _shoppingCartMessageSender = shoppingCartMessageSender;
+
             this._response = new ResponseDto();
         }
 
@@ -102,11 +104,10 @@ namespace JedoxifyMart.Services.ShoppingCartAPI.Controllers
 
 
                 checkoutHeader.CartDetails = cartDto.CartDetails;
-                //logic to add message to process order.
-               // await _messageBus.PublishMessage(checkoutHeader, "checkoutqueue");
+
 
                 ////rabbitMQ
-                //_rabbitMQCartMessageSender.SendMessage(checkoutHeader, "checkoutqueue");
+                _shoppingCartMessageSender.SendMessage(checkoutHeader, "checkoutqueue");
                 await _cartRepository.ClearCart(checkoutHeader.UserId);
             }
             catch (Exception ex)

@@ -1,7 +1,7 @@
 ﻿using JedoxifyMart.MessageBus;
-using JedoxifyMart.Services.ShoppingCartAPI.DTOs;
+using JedoxifyMart.Services.OrderAPI.DTOs;
 
-namespace JedoxifyMart.Services.ShoppingCartAPI.Messages
+namespace JedoxifyMart.Services.OrderAPI.Messages
 {
     public class CheckoutHeaderDto : BaseMessage
     {

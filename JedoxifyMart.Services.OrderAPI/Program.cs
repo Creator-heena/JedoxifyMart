@@ -1,26 +1,24 @@
 using AutoMapper;
-using JedoxifyMart.MessageBus;
-using JedoxifyMart.Services.ShoppingCart.Data;
-using JedoxifyMart.Services.ShoppingCartAPI.Mapper;
-using JedoxifyMart.Services.ShoppingCartAPI.RabbitMQSender;
-using JedoxifyMart.Services.ShoppingCartAPI.Repository;
+using JedoxifyMart.Services.OrderAPI.Data;
+using JedoxifyMart.Services.OrderAPI.Messaging;
+using JedoxifyMart.Services.OrderAPI.Repository;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
 builder.Services.AddControllers();
-
-
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "JedoxifyMart.Services.ShoppingCartAPI", Version = "v1" });
-    c.EnableAnnotations();
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "JedoxifyMart.Services.OrdeAPI", Version = "v1" });
+  
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Description = @"Enter 'Bearer' [space] and your token",
@@ -50,23 +48,28 @@ builder.Services.AddSwaggerGen(c =>
 
 builder.Services.AddDbContext<AppDBContext>(opt =>
 {
-    opt.UseSqlServer(builder.Configuration.GetConnectionString("JedoxifyMartShoppingCart"));
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("JedoxifyMartOrderAPI"));
 });
-IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
-builder.Services.AddSingleton(mapper);
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-builder.Services.AddScoped<ICartRepo, CartRepo>();
+var optionBuilder = new DbContextOptionsBuilder<AppDBContext>();
+optionBuilder.UseSqlServer(builder.Configuration.GetConnectionString("JedoxifyMartOrderAPI"));
+builder.Services.AddSingleton(new OrderRepo(optionBuilder.Options));
 
-builder.Services.AddSingleton<IShoppingCartMessageSender,ShoppingCartMessageSender>();
+
+//IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
+//builder.Services.AddSingleton(mapper);
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddScoped<IOrderRepo, OrderRepo>();
+
+builder.Services.AddHostedService<RabbitMQCheckoutConsumer>();
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer("Bearer", options =>
-{
-    options.Authority = "https://localhost:7222/";
-    options.TokenValidationParameters = new TokenValidationParameters
     {
-        ValidateAudience = false
-    };
-}
+        options.Authority = "https://localhost:7222/";
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateAudience = false
+        };
+    }
     );
 builder.Services.AddAuthorization(options =>
 {
@@ -77,6 +80,7 @@ builder.Services.AddAuthorization(options =>
     });
 
 });
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -88,8 +92,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseAuthentication();
-
 app.UseAuthorization();
+
 
 app.MapControllers();
 

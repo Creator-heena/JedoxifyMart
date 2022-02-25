@@ -36,13 +36,13 @@ namespace JedoxifyMart.web.Controllers
 
             if (cartDto.CartHeader != null)
             {
-        
+
                 foreach (var detail in cartDto.CartDetails)
                 {
                     cartDto.CartHeader.OrderTotal += (detail.Product.Price) * (detail.ProductCount);
                 }
 
-             
+
             }
             return cartDto;
         }
@@ -61,7 +61,6 @@ namespace JedoxifyMart.web.Controllers
             return View();
         }
 
-        [HttpGet]
         public async Task<IActionResult> Checkout()
         {
             return View(await LoadCartDtoBasedOnLoggedInUser());

@@ -12,7 +12,9 @@ namespace JedoxifyMart.Services.StandsAPI.Data
 
         Task<StandDto> GetStandById(int standId);
 
-        //Task<StandDto> CreateStand(StandDto standDto);
+        Task<StandDto> CreateUpdateStand(StandDto standDto);
+
+        Task<bool> DeleteStand(int standId);
 
     }
 }

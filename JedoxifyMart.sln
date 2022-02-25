@@ -21,6 +21,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateway", "Gateway", "{CBA6
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JedoxifyMart.GatewaySolution", "JedoxifyMart.GatewaySolution\JedoxifyMart.GatewaySolution.csproj", "{C5052035-F4B9-432F-8F00-66A9CF17B045}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MessageBus", "MessageBus", "{B140367C-A55D-4E8E-BD61-7C2517F92D8B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JedoxifyMart.MessageBus", "JedoxifyMart.MessageBus\JedoxifyMart.MessageBus.csproj", "{2C9BE13A-E86D-40D1-8625-915A54D252E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JedoxifyMart.Services.StateAPI", "JedoxifyMart.Srvices.StateAPI\JedoxifyMart.Services.StateAPI.csproj", "{7F2BBE0B-1B8C-4F77-81DD-D716CE334D55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JedoxifyMart.Services.OrderAPI", "JedoxifyMart.Services.OrderAPI\JedoxifyMart.Services.OrderAPI.csproj", "{6683E932-5E21-439F-8466-4F6645728C28}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +59,18 @@ Global
 		{C5052035-F4B9-432F-8F00-66A9CF17B045}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5052035-F4B9-432F-8F00-66A9CF17B045}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5052035-F4B9-432F-8F00-66A9CF17B045}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C9BE13A-E86D-40D1-8625-915A54D252E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C9BE13A-E86D-40D1-8625-915A54D252E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C9BE13A-E86D-40D1-8625-915A54D252E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C9BE13A-E86D-40D1-8625-915A54D252E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F2BBE0B-1B8C-4F77-81DD-D716CE334D55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F2BBE0B-1B8C-4F77-81DD-D716CE334D55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F2BBE0B-1B8C-4F77-81DD-D716CE334D55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F2BBE0B-1B8C-4F77-81DD-D716CE334D55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6683E932-5E21-439F-8466-4F6645728C28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6683E932-5E21-439F-8466-4F6645728C28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6683E932-5E21-439F-8466-4F6645728C28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6683E932-5E21-439F-8466-4F6645728C28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,6 +82,9 @@ Global
 		{81E285FD-07E3-416C-A491-1508D48C3D19} = {952AC224-95B7-4243-AF92-669515AB3500}
 		{BB549F96-E772-4B41-BD3E-A2BC14C36F8F} = {952AC224-95B7-4243-AF92-669515AB3500}
 		{C5052035-F4B9-432F-8F00-66A9CF17B045} = {CBA6E24A-C28A-4B1B-887D-E7BC4C11C3AE}
+		{2C9BE13A-E86D-40D1-8625-915A54D252E0} = {B140367C-A55D-4E8E-BD61-7C2517F92D8B}
+		{7F2BBE0B-1B8C-4F77-81DD-D716CE334D55} = {952AC224-95B7-4243-AF92-669515AB3500}
+		{6683E932-5E21-439F-8466-4F6645728C28} = {952AC224-95B7-4243-AF92-669515AB3500}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {42B62FB7-1BBB-4870-A737-12C4FC1D6B79}
