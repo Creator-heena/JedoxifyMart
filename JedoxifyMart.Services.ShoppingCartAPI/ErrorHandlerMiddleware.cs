@@ -1,9 +1,9 @@
-using JedoxifyMart.web.Models;
+using JedoxifyMart.Services.ShoppingCartAPI.DTOs;
 using System.Net;
 using System.Text.Json;
 
 
-namespace JedoxifyMart.web;
+namespace JedoxifyMart.Services.ShoppingCartAPI;
 
 
 

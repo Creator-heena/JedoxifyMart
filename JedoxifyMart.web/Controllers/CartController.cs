@@ -1,5 +1,4 @@
-﻿using JedoxifyMart.web.Models;
-using JedoxifyMart.web.Services.IServices;
+﻿using JedoxifyMart.web.Services.IServices;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;

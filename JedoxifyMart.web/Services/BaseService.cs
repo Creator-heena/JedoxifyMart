@@ -1,5 +1,4 @@
-﻿using JedoxifyMart.web.Models;
-using JedoxifyMart.web.Services.IServices;
+﻿using JedoxifyMart.web.Services.IServices;
 using Newtonsoft.Json;
 using System.Net.Http.Headers;
 using System.Text;
@@ -70,7 +69,7 @@ namespace JedoxifyMart.web.Services
                 var dto = new ResponseDto
                 {
                     DisplayMessage = "Something went wrong",
-                    ErrorMessage = new List<string> { Convert.ToString(ex.Message) },
+                    ErrorMessage = ex.Message,
                     IsSuccess = false
 
                 };

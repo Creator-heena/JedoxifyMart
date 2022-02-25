@@ -1,6 +1,6 @@
 using AutoMapper;
-using JedoxifyMart.MessageBus;
 using JedoxifyMart.Services.ShoppingCart.Data;
+using JedoxifyMart.Services.ShoppingCartAPI;
 using JedoxifyMart.Services.ShoppingCartAPI.Mapper;
 using JedoxifyMart.Services.ShoppingCartAPI.RabbitMQSender;
 using JedoxifyMart.Services.ShoppingCartAPI.Repository;
@@ -78,6 +78,8 @@ builder.Services.AddAuthorization(options =>
 
 });
 var app = builder.Build();
+// global error handler
+app.UseMiddleware<ErrorHandlerMiddleware>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

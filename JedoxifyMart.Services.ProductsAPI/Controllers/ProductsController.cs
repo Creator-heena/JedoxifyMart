@@ -31,7 +31,7 @@ namespace JedoxifyMart.Services.ProductsAPI.Controllers
             {
 
                 _response.IsSuccess = false;
-                _response.ErrorMessage = new List<string> { ex.Message };
+                _response.ErrorMessage = ex.Message;
             }
             return _response;
         }
@@ -49,7 +49,7 @@ namespace JedoxifyMart.Services.ProductsAPI.Controllers
             {
 
                 _response.IsSuccess = false;
-                _response.ErrorMessage = new List<string> { ex.Message };
+                _response.ErrorMessage = ex.Message;
             }
             return _response;
         }
@@ -67,7 +67,7 @@ namespace JedoxifyMart.Services.ProductsAPI.Controllers
             {
 
                 _response.IsSuccess = false;
-                _response.ErrorMessage = new List<string> { ex.Message };
+                _response.ErrorMessage = ex.Message ;
             }
             return _response;
         }
@@ -85,7 +85,7 @@ namespace JedoxifyMart.Services.ProductsAPI.Controllers
             {
 
                 _response.IsSuccess = false;
-                _response.ErrorMessage = new List<string> { ex.Message };
+                _response.ErrorMessage = ex.Message ;
             }
             return _response;
         }
@@ -105,7 +105,7 @@ namespace JedoxifyMart.Services.ProductsAPI.Controllers
             {
 
                 _response.IsSuccess = false;
-                _response.ErrorMessage = new List<string> { ex.Message };
+                _response.ErrorMessage =  ex.Message ;
             }
             return _response;
         }

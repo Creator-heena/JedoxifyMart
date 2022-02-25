@@ -1,5 +1,4 @@
-﻿using JedoxifyMart.web.Models;
-using JedoxifyMart.web.Services.IServices;
+﻿using JedoxifyMart.web.Services.IServices;
 
 namespace JedoxifyMart.web.Services
 {

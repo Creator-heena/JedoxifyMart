@@ -1,5 +1,6 @@
 global using JedoxifyMart.Services.StandsAPI.Data;
 using AutoMapper;
+using JedoxifyMart.Services.StandsAPI;
 using JedoxifyMart.Services.StandsAPI.Mapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -72,6 +73,9 @@ builder.Services.AddAuthorization(options =>
 });
 
 var app = builder.Build();
+// global error handler
+app.UseMiddleware<ErrorHandlerMiddleware>();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

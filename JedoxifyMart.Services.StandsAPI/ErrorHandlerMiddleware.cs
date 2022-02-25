@@ -1,9 +1,9 @@
-using JedoxifyMart.web.Models;
+using JedoxifyMart.Services.StandsAPI.DTOs;
 using System.Net;
 using System.Text.Json;
 
 
-namespace JedoxifyMart.web;
+namespace JedoxifyMart.Services.StandsAPI;
 
 
 

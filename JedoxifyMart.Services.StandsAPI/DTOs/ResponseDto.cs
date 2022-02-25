@@ -6,6 +6,6 @@
         public object Result  { get; set; }
 
         public string DisplayMessage { get; set; } = string.Empty;
-        public List<string> ErrorMessage { get; set; } = new List<string>();
+        public string ErrorMessage { get; set; } = string.Empty;
     }
 }
