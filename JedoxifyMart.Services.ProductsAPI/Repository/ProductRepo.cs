@@ -11,15 +11,15 @@ namespace JedoxifyMart.Services.ProductsAPI.Repository
     {
         private readonly AppDBContext _context;
         private IMapper _mapper;
-        public ProductRepo(AppDBContext context,  IMapper mapper)
+        public ProductRepo(AppDBContext context, IMapper mapper)
         {
-            _context  = context;
+            _context = context;
             _mapper = mapper;
         }
         public async Task<ProductDto> CreateUpdateProduct(ProductDto productdto)
         {
-           Product product = _mapper.Map<ProductDto,Product>(productdto);
-            
+            Product product = _mapper.Map<ProductDto, Product>(productdto);
+
             if (product.ProductId > 0)
             {
                 _context.Products.Update(product);
@@ -40,7 +40,7 @@ namespace JedoxifyMart.Services.ProductsAPI.Repository
                 Product product = await _context.Products.FirstOrDefaultAsync(p => p.ProductId == productId);
                 if (product == null)
                 {
-                    return false;
+                    throw new KeyNotFoundException("Product not found");
                 }
                 _context.Products.Remove(product);
                 await _context.SaveChangesAsync();
@@ -49,7 +49,6 @@ namespace JedoxifyMart.Services.ProductsAPI.Repository
             }
             catch (Exception)
             {
-
                 return false;
             }
 
@@ -57,7 +56,7 @@ namespace JedoxifyMart.Services.ProductsAPI.Repository
 
         public async Task<IEnumerable<ProductDto>> GetAllProducts()
         {
-            List<Product> productList= await _context.Products.ToListAsync();
+            List<Product> productList = await _context.Products.ToListAsync();
             return _mapper.Map<List<ProductDto>>(productList);
         }
 
@@ -67,9 +66,6 @@ namespace JedoxifyMart.Services.ProductsAPI.Repository
             return _mapper.Map<ProductDto>(product);
         }
 
-        public bool SaveChanges()
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }

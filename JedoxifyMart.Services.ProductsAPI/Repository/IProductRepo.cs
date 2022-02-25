@@ -4,7 +4,7 @@ namespace JedoxifyMart.Services.ProductsAPI.Repository
 {
     public interface IProductRepo
     {
-        bool SaveChanges();
+     
 
         Task<IEnumerable<ProductDto>> GetAllProducts();
 

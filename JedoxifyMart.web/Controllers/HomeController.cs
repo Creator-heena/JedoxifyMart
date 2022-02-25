@@ -55,11 +55,9 @@ namespace JedoxifyMart.web.Controllers
                     ProductId = productDto.ProductId,
                 };
 
-                //var resp = await _productService.GetProductByIdAsync<ResponseDto>(productId, "");
-                //if (resp != null && resp.IsSuccess)
-                //{
+           
                     cartDetailsDto.Product = JsonConvert.DeserializeObject<ProductDto>(Convert.ToString(response.Result));
-                //}
+              
                 List<CartDetailsDto> cartDetailsDtos = new();
                 cartDetailsDtos.Add(cartDetailsDto);
                 cartDto.CartDetails = cartDetailsDtos;

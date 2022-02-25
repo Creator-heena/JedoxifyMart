@@ -39,6 +39,9 @@ builder.Services.AddAuthentication(options =>
      });
 var app = builder.Build();
 
+// global error handler
+app.UseMiddleware<ErrorHandlerMiddleware>();
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {

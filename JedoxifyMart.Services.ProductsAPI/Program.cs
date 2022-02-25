@@ -1,4 +1,5 @@
 using AutoMapper;
+using JedoxifyMart.Services.ProductsAPI;
 using JedoxifyMart.Services.ProductsAPI.Data;
 using JedoxifyMart.Services.ProductsAPI.Mapper;
 using JedoxifyMart.Services.ProductsAPI.Repository;
@@ -74,6 +75,9 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped<IProductRepo, ProductRepo>();
 
 var app = builder.Build();
+
+// global error handler
+app.UseMiddleware<ErrorHandlerMiddleware>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

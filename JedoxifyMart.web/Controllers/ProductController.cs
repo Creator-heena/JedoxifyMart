@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 
 namespace JedoxifyMart.web.Controllers
 {
+  
     public class ProductController : Controller
     {
         private readonly IProductService _productService;
@@ -27,12 +28,14 @@ namespace JedoxifyMart.web.Controllers
             }
             return View(productDtos);
         }
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> ProductCreate()
         {
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> ProductCreate(ProductDto productDto)
         {
             if (ModelState.IsValid)
@@ -49,6 +52,7 @@ namespace JedoxifyMart.web.Controllers
 
             return View(productDto);
         }
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> ProductUpdate(int productId)
         {
             var accessToken = await HttpContext.GetTokenAsync("access_token");
@@ -66,6 +70,7 @@ namespace JedoxifyMart.web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> ProductUpdate(ProductDto productDto)
         {
             if (ModelState.IsValid)
